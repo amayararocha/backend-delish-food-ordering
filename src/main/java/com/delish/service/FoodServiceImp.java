@@ -98,6 +98,7 @@ public class FoodServiceImp implements FoodService {
 		
 		return foods.stream().filter(food -> food.isVegetarian() == isVegetarian).collect(Collectors.toList()); 
 	}
+	
 	@Override
 	public List<Food> searchFood(String keyword) {
 		
@@ -116,7 +117,7 @@ public class FoodServiceImp implements FoodService {
 	}
 
 	@Override
-	public Food updateAvailibilityStatus(Long foodId) throws Exception {
+	public Food updateAvailabilityStatus(Long foodId) throws Exception {
 		
 		Food food =  findFoodById(foodId);
 		food.setAvailable(food.isAvailable());
