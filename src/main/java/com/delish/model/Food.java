@@ -35,7 +35,7 @@ public class Food {
 	private Long price;
 	
 	@ManyToOne
-	private Category food;
+	private Category foodCategory;
 	
 	@Column(length = 1000)
 	@ElementCollection

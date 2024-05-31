@@ -5,7 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "tb_address")
 public class Address {
@@ -13,4 +15,15 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	private String streetAddress;
+
+	private String city;
+
+	private String stateProvince;
+
+	private String postalCode;
+
+	private String country;
+	
 }

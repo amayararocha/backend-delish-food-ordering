@@ -20,7 +20,7 @@ public class CreateRestaurantRequest {
 	
 	private Address address;
 	
-	private ContactInformation contactInformantion;
+	private ContactInformation contactInformation;
 	
 	private String openingHours;
 
