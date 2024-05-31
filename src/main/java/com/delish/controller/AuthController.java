@@ -46,7 +46,7 @@ public class AuthController {
 	@Autowired
 	private CartRepository cartRepository;
 
-	@PostMapping("/signup")
+	@PostMapping("/signup") // cria o usuario
 	public ResponseEntity<AuthResponse> createdUserHendler(@RequestBody User user) throws Exception {
 
 		User isEmailExist = userRepository.findByEmail(user.getEmail());
@@ -80,7 +80,7 @@ public class AuthController {
 		return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
 	}
 
-	@PostMapping("/signin")
+	@PostMapping("/signin") // faz o login se já possuir uma conta
 	public ResponseEntity<AuthResponse> signin(@RequestBody LoginRequest req){
 		
 		String username = req.getEmail();
@@ -100,7 +100,7 @@ public class AuthController {
 		return new ResponseEntity<>(authResponse, HttpStatus.OK);
 		
 	}
-	
+	//metodo de autenticação
 	private Authentication authenticate(String username, String password) {
 		
 		UserDetails userDetails = customerUserDatailsService.loadUserByUsername(username);

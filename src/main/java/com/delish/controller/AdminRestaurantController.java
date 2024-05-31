@@ -30,7 +30,7 @@ public class AdminRestaurantController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping()
+	@PostMapping() //cria o restaurante
 	public ResponseEntity<Restaurant> createRestaurant(@RequestBody CreateRestaurantRequest req, 
 			@RequestHeader("Authorization") String jwt) 
 			throws Exception {
@@ -71,7 +71,7 @@ public class AdminRestaurantController {
 		return new ResponseEntity<>(res, HttpStatus.OK);
 	}
 	
-	@PutMapping("/{id}/status")
+	@PutMapping("/{id}/status") //abre e fecha o restaurante
 	public ResponseEntity<Restaurant> updateRestaurantStatus( 
 			@RequestHeader("Authorization") String jwt,
 			@PathVariable Long id) 

@@ -18,7 +18,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/profile")
+	@GetMapping("/profile") //encontra o usuario através do token 
 	public ResponseEntity<User> findUserByJwtToken(@RequestHeader("Authorization") String Jwt) throws Exception{
 		
 		User user = userService.findUserByJwtToken(Jwt);
