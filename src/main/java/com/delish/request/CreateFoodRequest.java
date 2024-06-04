@@ -1,4 +1,4 @@
-package com.delish.service;
+package com.delish.request;
 
 import java.util.List;
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.delish.model.Category;
 import com.delish.model.Food;
 import com.delish.model.Restaurant;
+import com.delish.request.CreateFoodRequest;
 
 public interface FoodService {
 	

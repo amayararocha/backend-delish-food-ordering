@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.delish.model.Food;
 import com.delish.model.Restaurant;
 import com.delish.model.User;
-import com.delish.service.CreateFoodRequest;
+import com.delish.request.CreateFoodRequest;
 import com.delish.service.FoodService;
 import com.delish.service.RestaurantService;
 import com.delish.service.UserService;
