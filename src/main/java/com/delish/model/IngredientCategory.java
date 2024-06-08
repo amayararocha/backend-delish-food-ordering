@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_ingredientscateory")
-public class IngredientsCategory {
+public class IngredientCategory {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
