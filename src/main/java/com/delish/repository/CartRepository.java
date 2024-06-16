@@ -6,5 +6,5 @@ import com.delish.model.Cart;
 
 public interface CartRepository extends JpaRepository<Cart, Long>{
 
-	
+	public Cart findByCustumerId(Long userId); 
 }
