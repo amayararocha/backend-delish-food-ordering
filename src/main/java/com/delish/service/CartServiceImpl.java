@@ -94,26 +94,35 @@ public class CartServiceImpl implements CartService{
 
 	@Override
 	public Long calculateCartTotals(Cart cart) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Long total = 0L;
+		
+		for (CartItem cartItem:cart.getItems()) {
+			total += cartItem.getFood().getPrice()+cartItem.getQuantity();
+		}
+		return total;
 	}
 
 	@Override
 	public Cart findCartById(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Cart> optionalCart = cartRepository.findById(id);
+		if (optionalCart.isEmpty()) {
+			throw new Exception("Cart not found with id " + id);
+		}
+		return optionalCart.get();
 	}
 
 	@Override
-	public Cart findCartByUserId(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Cart findCartByUserId(Long userId) throws Exception {
+
+		return cartRepository.findByCustumerId(userId);
 	}
 
 	@Override
 	public Cart clearCart(Long userId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Cart cart = findCartByUserId(userId);
+		cart.getItems().clear();
+		
+		return cartRepository.save(cart);
 	}
 
 }
