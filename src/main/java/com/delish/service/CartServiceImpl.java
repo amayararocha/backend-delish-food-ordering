@@ -84,9 +84,9 @@ public class CartServiceImpl implements CartService{
 		if (cartItemOptional.isEmpty()) {
 			throw new Exception("Cart item not found");
 		}
-		
+
 		CartItem item = cartItemOptional.get();
-		
+
 		cart.getItems().remove(item);
 
 		return cartRepository.save(cart);
@@ -95,7 +95,7 @@ public class CartServiceImpl implements CartService{
 	@Override
 	public Long calculateCartTotals(Cart cart) throws Exception {
 		Long total = 0L;
-		
+
 		for (CartItem cartItem:cart.getItems()) {
 			total += cartItem.getFood().getPrice()+cartItem.getQuantity();
 		}
@@ -112,16 +112,18 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public Cart findCartByUserId(Long userId) throws Exception {
-
-		return cartRepository.findByCustumerId(userId);
+	public Cart findCartByUserId(String jwt) throws Exception {
+		User user = userService.findUserByJwtToken(jwt);
+		return cartRepository.findByCustumerId(user.getId());
 	}
 
 	@Override
-	public Cart clearCart(Long userId) throws Exception {
-		Cart cart = findCartByUserId(userId);
+	public Cart clearCart(String jwt) throws Exception {
+		User user = userService.findUserByJwtToken(jwt);
+
+		Cart cart = findCartByUserId(jwt);
 		cart.getItems().clear();
-		
+
 		return cartRepository.save(cart);
 	}
 
