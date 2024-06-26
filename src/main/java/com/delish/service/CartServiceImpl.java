@@ -3,6 +3,7 @@ package com.delish.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.delish.model.Cart;
 import com.delish.model.CartItem;
@@ -13,6 +14,7 @@ import com.delish.repository.CartRepository;
 import com.delish.repository.FoodRepository;
 import com.delish.request.AddCartItemRequest;
 
+@Service
 public class CartServiceImpl implements CartService{
 
 	@Autowired

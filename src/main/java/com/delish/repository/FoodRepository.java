@@ -13,7 +13,7 @@ public interface FoodRepository extends JpaRepository<Food, Long>{
 	List<Food> findByRestaurantId(Long restaurantId);
 	
 	@Query("SELECT f FROM Food f "
-			+ "WHERE f.name LIKE %:keyword% "
-			+ "OR f.foodCatefory.name LIKE %:keyword%")
-	List<Food> searchFood(@Param("keyword") String keyword);
+		     + "WHERE LOWER(f.name) LIKE LOWER(CONCAT('%', :keyword, '%')) "
+		     + "OR LOWER(f.foodCategory.name) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+		List<Food> searchFood(@Param("keyword") String keyword);
 }
